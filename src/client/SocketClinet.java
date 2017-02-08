@@ -38,7 +38,7 @@ public class SocketClinet extends Socket{
 			while(true){
 				String result = br.readLine();
 				if("shutdown".equals(result)){
-					System.out.println("ÄúÒÑÍË³öÁËÁÄÌìÊÒ,ÔÙ¼û!");
+					System.out.println("æ‚¨å·²é€€å‡ºäº†èŠå¤©å®¤,å†è§!");
 					break;
 				}else {
 					System.out.println(result);
@@ -55,7 +55,7 @@ public class SocketClinet extends Socket{
 	
 	 public static void main(String[] args) {
 	        try {
-	            new SocketClinet();//Æô¶¯¿Í»§¶Ë
+	            new SocketClinet();//æ–°å»ºä¸€ä¸ªå®¢æˆ·ç«¯socket
 	        }catch (Exception e) {
 	        }
 	    }
