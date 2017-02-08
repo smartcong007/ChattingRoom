@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 public class Server extends ServerSocket{
-	private static final int PORT = 2017;
+	private static final int PORT = 2017;   //指定要监听的端口
 	private List<String> users = new ArrayList<String>();
 	private List<ServerThread> thread_list = new ArrayList<ServerThread>();
 	private LinkedList<MSG> msgs = new LinkedList<MSG>();
