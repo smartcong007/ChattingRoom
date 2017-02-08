@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 public class Server extends ServerSocket{
-	private static final int PORT = 2017;   //Ö¸¶¨Òª¼àÌıµÄ¶Ë¿Ú
+	private static final int PORT = 2017;   //Ö¸æœåŠ¡ç«¯socketç›‘å¬æŒ‡å®šç«¯å£
 	private List<String> users = new ArrayList<String>();
 	private List<ServerThread> thread_list = new ArrayList<ServerThread>();
 	private LinkedList<MSG> msgs = new LinkedList<MSG>();
@@ -81,7 +81,7 @@ public class Server extends ServerSocket{
 			client = s;
 			pw = new PrintWriter(client.getOutputStream(),true);
 			br = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			pw.println("³É¹¦½øÈëÁÄÌìÊÒ,ÇëÊäÈëÄãµÄÃû×Ö: ");
+			pw.println("æˆåŠŸè¿›å…¥èŠå¤©å®¤,è¯·è¾“å…¥ä½ çš„åå­—: ");
 			start();
 		}
 		
@@ -95,8 +95,8 @@ public class Server extends ServerSocket{
 	        		name = line;
 	        		users.add(name);
 	        		thread_list.add(this);
-	        		pw.println("ÄãºÃ,¿ÉÒÔ¿ªÊ¼ÁÄÌìÁË...");
-	        	    this.pushmsg("clinet<"+name+">½øÈëÁËÁÄÌìÊÒ...");
+	        		pw.println("ä½ å¥½,å¯ä»¥å¼€å§‹èŠå¤©äº†...");
+	        	    this.pushmsg("clinet<"+name+">è¿›å…¥äº†èŠå¤©å®¤...");
 	        	}else{
 	        		this.pushmsg("clinet<"+name+">:"+line);
 	        	}
@@ -113,7 +113,7 @@ public class Server extends ServerSocket{
 				}
 				thread_list.remove(this);
 				users.remove(name);
-				this.pushmsg("clinet<"+name+">ÍË³öÁËÁÄÌìÊÒ!");
+				this.pushmsg("clinet<"+name+">é€€å‡ºäº†èŠå¤©å®¤!");
 			}
 		}
 		 
@@ -122,7 +122,7 @@ public class Server extends ServerSocket{
 		 }
 		 
 		 public void send(String msg){
-			 System.out.println("clinet<"+name+">ÍÆËÍ³öÁËÏûÏ¢!");
+			 System.out.println("clinet<"+name+">æ¨é€å‡ºäº†æ¶ˆæ¯!");
 			 synchronized (thread_list) {
 			 for(ServerThread t:thread_list){
 				 if(t!=this){
@@ -139,6 +139,6 @@ public class Server extends ServerSocket{
 	
 	
 	 public static void main(String[] args)throws IOException {
-	        new Server();//Æô¶¯·şÎñ¶Ë
+	        new Server();//å¼€å¯æœåŠ¡ç«¯socket
 	    }
 }
