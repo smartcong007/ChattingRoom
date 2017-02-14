@@ -113,6 +113,7 @@ public class Server extends ServerSocket{
 				}
 				thread_list.remove(this);
 				users.remove(name);
+				System.out.println("clinet<"+name+">退出了聊天室!");
 				this.pushmsg("clinet<"+name+">退出了聊天室!");
 			}
 		}
@@ -122,7 +123,6 @@ public class Server extends ServerSocket{
 		 }
 		 
 		 public void send(String msg){
-			 System.out.println("clinet<"+name+">推送出了消息!");
 			 synchronized (thread_list) {
 			 for(ServerThread t:thread_list){
 				 if(t!=this){
@@ -133,12 +133,14 @@ public class Server extends ServerSocket{
 		 }
 		 
 		 public void pushmsg(String msg){
+			 System.out.println("clinet<"+name+">推送出了一条消息!");
 			 msgs.push(new MSG(this.getName(), msg));
 		 }
 	}
 	
 	
-	 public static void main(String[] args)throws IOException {
+	 @SuppressWarnings("resource")
+	public static void main(String[] args)throws IOException {
 	        new Server();//开启服务端socket
 	    }
 }

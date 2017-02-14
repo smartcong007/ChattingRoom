@@ -53,7 +53,8 @@ public class SocketClinet extends Socket{
 		}
 	}
 	
-	 public static void main(String[] args) {
+	 @SuppressWarnings("resource")
+	public static void main(String[] args) {
 	        try {
 	            new SocketClinet();//新建一个客户端socket
 	        }catch (Exception e) {
