@@ -8,6 +8,11 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+/**
+ * 聊天室应用的服务端
+ * @author 聪
+ * @version v1.0
+ */
 public class Server extends ServerSocket{
 	private static final int PORT = 2017;   //ָ服务端socket监听指定端口
 	private List<String> users = new ArrayList<String>();
@@ -15,7 +20,7 @@ public class Server extends ServerSocket{
 	private LinkedList<MSG> msgs = new LinkedList<MSG>();
 	public Server() throws IOException{
 		super(PORT);
-		new PushThread();
+		new PushThread();   
 		try{
 			while(true){
 				Socket socket = this.accept();
@@ -50,6 +55,9 @@ public class Server extends ServerSocket{
 		
 	}
 	
+	/*
+	 * 负责向客户端推送消息的线程
+	 */
 	public class PushThread extends Thread{
 		public PushThread(){
 			start();
@@ -71,6 +79,9 @@ public class Server extends ServerSocket{
 		}
 	}
 	
+	/*
+	 * 负责维护客户端连接并向服务器提交消息的线程
+	 */
 	public class ServerThread extends Thread{
 		private Socket client;
 		private PrintWriter pw;

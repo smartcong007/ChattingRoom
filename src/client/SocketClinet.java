@@ -5,7 +5,11 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
-
+/**
+ * 聊天室应用的客户端
+ * @author 聪
+ * @version v1.0
+ */
 public class SocketClinet extends Socket{
 	private static final String SERVER_IP = "127.0.0.1";
 	private static final int SERVER_PORT = 2017;
@@ -27,6 +31,9 @@ public class SocketClinet extends Socket{
 		}
 	}
 	
+	/*
+	 * 负责从服务端接受消息的线程
+	 */
 	class readThread extends Thread{
 		public readThread(){
 				start();
