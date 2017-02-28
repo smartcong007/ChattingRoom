@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 /**
  * 聊天室应用的服务端
- * @author 聪
+ * @author smart_cong
  * @version v1.0
  */
 public class Server extends ServerSocket{
